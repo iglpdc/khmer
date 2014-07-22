@@ -4,10 +4,10 @@ make clean
 
 rm -Rf .env dist cov-int
 
-virtualenv .env
+virtualenv -p $(which python2) .env
 
 . .env/bin/activate
-pip install --quiet nose coverage pylint pep8==1.5 screed
+make install-dependencies
 
 if type ccache >/dev/null 2>&1
 then
